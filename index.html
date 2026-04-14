@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strada delle Ciliegie / Cherry Road / Kirschstraße</title>
+<title>Sentiero per la sopravvivenza / Pot za preživetje / Path of Survival</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -82,17 +82,17 @@
 <body>
 
 <div class="hero">
-  <div class="year-badge">Collio / Brda — Gorizia · 1811</div>
-  <h1>La Strada<br>delle <em>Ciliegie</em></h1>
-  <div class="hero-subtitle">Valerisce → Gorizia · Un antico cammino tra i ciliegi</div>
+  <div class="year-badge" id="hero-badge">Collio / Brda — Gorizia · 1811</div>
+  <h1 id="hero-title">Sentiero per la<br><em>Sopravvivenza</em></h1>
+  <div class="hero-subtitle" id="hero-sub">Pot za preživetje · Path of Survival · Pfad des Überlebens · Sente pe sopravivence</div>
 </div>
 
 <div class="lang-bar">
-  <button class="lang-btn" onclick="setLang('it')" id="btn-it">🇮🇹 Italiano</button>
   <button class="lang-btn" onclick="setLang('sl')" id="btn-sl">🇸🇮 Slovensko</button>
+  <button class="lang-btn" onclick="setLang('it')" id="btn-it">🇮🇹 Italiano</button>
+  <button class="lang-btn" onclick="setLang('fur')" id="btn-fur">🌿 Furlan</button>
   <button class="lang-btn" onclick="setLang('en')" id="btn-en">🇬🇧 English</button>
   <button class="lang-btn" onclick="setLang('de')" id="btn-de">🇩🇪 Deutsch</button>
-  <button class="lang-btn" onclick="setLang('fur')" id="btn-fur">🌿 Furlan</button>
 </div>
 
 <!-- ═══════════════ VIEW PRINCIPALE ═══════════════ -->
@@ -225,7 +225,7 @@
   <!-- IT -->
   <div class="lang-section" id="detail-it">
     <button class="back-btn" onclick="showMain()">← Torna alla pagina principale</button>
-    <div class="breadcrumb">Strada delle Ciliegie <span>›</span> Storia approfondita</div>
+    <div class="breadcrumb">Sentiero per la Sopravvivenza <span>›</span> Storia approfondita</div>
 
     <div class="long-chapter">
       <h2>📜 Un sentiero millenario</h2>
@@ -325,7 +325,7 @@
   <!-- EN -->
   <div class="lang-section" id="detail-en">
     <button class="back-btn" onclick="showMain()">← Back to main page</button>
-    <div class="breadcrumb">Cherry Road <span>›</span> Full historical account</div>
+    <div class="breadcrumb">Path of Survival <span>›</span> Full historical account</div>
 
     <div class="long-chapter">
       <h2>📜 An ancient trail</h2>
@@ -375,7 +375,7 @@
   <!-- DE -->
   <div class="lang-section" id="detail-de">
     <button class="back-btn" onclick="showMain()">← Zurück zur Hauptseite</button>
-    <div class="breadcrumb">Kirschstraße <span>›</span> Ausführliche Geschichte</div>
+    <div class="breadcrumb">Pfad des Überlebens <span>›</span> Ausführliche Geschichte</div>
 
     <div class="long-chapter">
       <h2>📜 Ein uralter Pfad</h2>
@@ -473,7 +473,7 @@
 
 <footer>
   <span class="cherry-icon">🍒</span>
-  Strada delle Ciliegie · Skaput · Collio / Brda — Gorizia / Gorica
+  Pot za preživetje · Sentiero per la Sopravvivenza · Path of Survival · Collio / Brda — Gorizia
 </footer>
 
 <script>
@@ -501,11 +501,26 @@
     return 'it';
   }
 
+  const heroTitles = {
+    'it':  ['Sentiero per la<br><em>Sopravvivenza</em>', 'Valerisce → Gorizia · Un antico cammino tra i ciliegi', 'Collio / Brda — Gorizia · 1811'],
+    'sl':  ['Pot za<br><em>Preživetje</em>', 'Valerišče → Gorica · Stara pot med češnjevimi drevesi', 'Collio / Brda — Gorica · 1811'],
+    'en':  ['Path of<br><em>Survival</em>', 'Valerisce → Gorizia · An ancient trail through the cherry orchards', 'Collio / Brda — Gorizia · 1811'],
+    'de':  ['Pfad des<br><em>Überlebens</em>', 'Valerisce → Görz · Ein alter Weg durch die Kirschgärten', 'Collio / Brda — Görz · 1811'],
+    'fur': ['Sente pe<br><em>Sopravivence</em>', 'Valerisce → Gurize · Une viere sente tra i ciriesârs', 'Cuei / Breda — Gurize · 1811']
+  };
+
   function setLang(code) {
     supported.forEach(l => document.getElementById('btn-'+l).classList.remove('active'));
     document.getElementById('btn-'+code).classList.add('active');
     document.documentElement.lang = code === 'fur' ? 'fur' : code;
     localStorage.setItem('preferred-lang', code);
+    // Aggiorna titolo hero
+    const ht = document.getElementById('hero-title');
+    const hs = document.getElementById('hero-sub');
+    if (ht && heroTitles[code]) ht.innerHTML = heroTitles[code][0];
+    if (hs && heroTitles[code]) hs.textContent = heroTitles[code][1];
+    const hb = document.getElementById('hero-badge');
+    if (hb && heroTitles[code]) hb.textContent = heroTitles[code][2];
     ['main','detail'].forEach(view => {
       supported.forEach(l => {
         const el = document.getElementById(view+'-'+l);
