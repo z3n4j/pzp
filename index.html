@@ -32,7 +32,8 @@
   .hero-subtitle { font-style:italic; font-size:1rem; color:rgba(255,255,255,0.7); margin-top:0.5rem; }
 
   .lang-bar { background:var(--bark); display:flex; justify-content:center; gap:0.25rem; padding:0.6rem 1rem; flex-wrap:wrap; position:sticky; top:0; z-index:100; }
-  .lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.7); font-family:'Lora',serif; font-size:0.78rem; padding:0.3rem 0.7rem; cursor:pointer; border-radius:2px; transition:all 0.2s; }
+  .lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.7); font-family:'Lora',serif; font-size:0.78rem; padding:0.3rem 0.7rem; cursor:pointer; border-radius:2px; transition:all 0.2s; display:inline-flex; align-items:center; gap:0.35rem; }
+  .lang-btn svg { display:block; border-radius:1px; flex-shrink:0; }
   .lang-btn:hover { background:rgba(255,255,255,0.1); color:#fff; }
   .lang-btn.active { background:var(--gold); border-color:var(--gold); color:var(--bark); font-weight:600; }
 
@@ -88,11 +89,11 @@
 </div>
 
 <div class="lang-bar">
-  <button class="lang-btn" onclick="setLang('sl')" id="btn-sl">🇸🇮 Slovensko</button>
-  <button class="lang-btn" onclick="setLang('it')" id="btn-it">🇮🇹 Italiano</button>
-  <button class="lang-btn" onclick="setLang('fur')" id="btn-fur">🌿 Furlan</button>
-  <button class="lang-btn" onclick="setLang('en')" id="btn-en">🇬🇧 English</button>
-  <button class="lang-btn" onclick="setLang('de')" id="btn-de">🇩🇪 Deutsch</button>
+  <button class="lang-btn" onclick="setLang('sl')" id="btn-sl"><svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="4.67" fill="#fff"/><rect y="4.67" width="20" height="4.66" fill="#003DA5"/><rect y="9.33" width="20" height="4.67" fill="#E00034"/><polygon points="3,6.5 4.5,3.5 6,6.5" fill="#003DA5"/><polygon points="4.5,3.5 5.5,5 3.5,5" fill="#fff"/><rect x="3" y="6.5" width="3" height="1" fill="#FFD700"/></svg> Slovensko</button>
+  <button class="lang-btn" onclick="setLang('it')" id="btn-it"><svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" fill="#CE2B37"/><rect width="13.33" height="14" fill="#fff"/><rect width="6.67" height="14" fill="#009246"/></svg> Italiano</button>
+  <button class="lang-btn" onclick="setLang('fur')" id="btn-fur"><svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" fill="#FFD700"/><text x="10" y="10" font-size="7" text-anchor="middle" fill="#003DA5" font-family="serif" font-weight="bold">FRL</text></svg> Furlan</button>
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en"><svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" fill="#012169"/><path d="M0,0 L20,14 M20,0 L0,14" stroke="#fff" stroke-width="2.8"/><path d="M0,0 L20,14 M20,0 L0,14" stroke="#C8102E" stroke-width="1.8"/><path d="M10,0 V14 M0,7 H20" stroke="#fff" stroke-width="4.6"/><path d="M10,0 V14 M0,7 H20" stroke="#C8102E" stroke-width="3"/></svg> English</button>
+  <button class="lang-btn" onclick="setLang('de')" id="btn-de"><svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" fill="#FFCE00"/><rect width="20" height="9.33" fill="#000"/><rect width="20" height="4.67" y="4.67" fill="#DD0000"/></svg> Deutsch</button>
 </div>
 
 <!-- ═══════════════ VIEW PRINCIPALE ═══════════════ -->
@@ -473,7 +474,7 @@
 
 <footer>
   <span class="cherry-icon">🍒</span>
-  Pot za preživetje · Sentiero per la Sopravvivenza · Path of Survival · Collio / Brda — Gorizia
+  Pot za preživetje · Sentiero per la Sopravvivenza · Sente pe Sopravivence · Path of Survival · Pfad des Überlebens
 </footer>
 
 <script>
