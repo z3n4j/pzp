@@ -84,6 +84,18 @@
     cursor:pointer;
     transition:all .2s ease;
   }
+  nav.tabs button{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+  }
+  nav.tabs button .flag{
+    width:24px;
+    height:16px;
+    flex:none;
+    border-radius:2px;
+    box-shadow:0 0 0 1px rgba(58,36,32,.28);
+  }
   nav.tabs button:hover{background:#e9dcc6;}
   nav.tabs button.active{
     background:var(--accent);
@@ -295,26 +307,65 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="flag-sl" viewBox="0 0 30 20">
+      <rect width="30" height="6.67" fill="#ffffff"/>
+      <rect y="6.67" width="30" height="6.67" fill="#005da4"/>
+      <rect y="13.33" width="30" height="6.67" fill="#ed1c24"/>
+      <path d="M5 2.4H12V8.2C12 11.2 8.5 12.9 8.5 12.9C8.5 12.9 5 11.2 5 8.2Z" fill="#005da4" stroke="#ed1c24" stroke-width=".7"/>
+      <path d="M5.9 9.8 7.7 6.4 8.6 7.9 9.4 6.7 11.1 9.8Z" fill="#ffffff"/>
+      <circle cx="6.9" cy="4.3" r=".5" fill="#ffdd00"/><circle cx="8.5" cy="3.7" r=".5" fill="#ffdd00"/><circle cx="10.1" cy="4.3" r=".5" fill="#ffdd00"/>
+    </symbol>
+    <symbol id="flag-it" viewBox="0 0 30 20">
+      <rect width="10" height="20" fill="#009246"/>
+      <rect x="10" width="10" height="20" fill="#ffffff"/>
+      <rect x="20" width="10" height="20" fill="#ce2b37"/>
+    </symbol>
+    <symbol id="flag-fur" viewBox="0 0 30 20">
+      <rect width="30" height="20" fill="#1d5fa8"/>
+      <g fill="#f4c400">
+        <path d="M15 5.4c1.2 0 2 .8 2 1.9 0 .6-.3 1.1-.7 1.5l1.1 2.1c.6 1 .9 2.2.7 3.4l-.5 3h-5.2l-.5-3c-.2-1.2.1-2.4.7-3.4l1.1-2.1c-.4-.4-.7-.9-.7-1.5 0-1.1.8-1.9 2-1.9z"/>
+        <path d="M12.7 9.1C9.6 7.4 6.3 7.7 3.7 6.1c.2 3.5 2.3 6.9 6.2 8.2-.9-.2-2.3-.3-3.4-.1 1.5 2.4 4 3.2 6.4 2.9z"/>
+        <path d="M17.3 9.1C20.4 7.4 23.7 7.7 26.3 6.1c-.2 3.5-2.3 6.9-6.2 8.2.9-.2 2.3-.3 3.4-.1-1.5 2.4-4 3.2-6.4 2.9z"/>
+        <path d="M13.2 5 13.5 3l.9 1.100.6-1.700.6 1.700.9-1.100.3 2z"/>
+      </g>
+    </symbol>
+    <symbol id="flag-en" viewBox="0 0 60 40">
+      <rect width="60" height="40" fill="#012169"/>
+      <path d="M0 0 60 40M60 0 0 40" stroke="#ffffff" stroke-width="8"/>
+      <path d="M0 0 60 40M60 0 0 40" stroke="#c8102e" stroke-width="3"/>
+      <path d="M30 0V40M0 20H60" stroke="#ffffff" stroke-width="12"/>
+      <path d="M30 0V40M0 20H60" stroke="#c8102e" stroke-width="7"/>
+    </symbol>
+    <symbol id="flag-de" viewBox="0 0 30 20">
+      <rect width="30" height="6.67" fill="#000000"/>
+      <rect y="6.67" width="30" height="6.67" fill="#dd0000"/>
+      <rect y="13.33" width="30" height="6.67" fill="#ffce00"/>
+    </symbol>
+  </defs>
+</svg>
+
 <header>
   <h1 class="title-line">
     <span class="title-row">
-      <span>Pot za Preživetje</span><span class="dot">·</span>
-      <span>Sentiero per la Sopravvivenza</span><span class="dot">·</span>
-      <span>Troi par Sorevivi</span>
+      <span>Pot za preživetje</span><span class="dot">·</span>
+      <span>Il Sentiero della Sopravvivenza</span><span class="dot">·</span>
+      <span>Il Troi par Sorevivi</span>
     </span>
     <span class="title-row">
-      <span>Path of Survival</span><span class="dot">·</span>
-      <span>Pfad des Überlebens</span>
+      <span>The Path of Survival</span><span class="dot">·</span>
+      <span>Der Pfad des Überlebens</span>
     </span>
   </h1>
 </header>
 
 <nav class="tabs" id="langTabs">
-  <button data-lang="sl" class="active">Slovensko</button>
-  <button data-lang="it">Italiano</button>
-  <button data-lang="fur">Furlan</button>
-  <button data-lang="en">English</button>
-  <button data-lang="de">Deutsch</button>
+  <button data-lang="sl" class="active"><svg class="flag" aria-hidden="true" focusable="false"><use href="#flag-sl"/></svg> Slovensko</button>
+  <button data-lang="it"><svg class="flag" aria-hidden="true" focusable="false"><use href="#flag-it"/></svg> Italiano</button>
+  <button data-lang="fur"><svg class="flag" aria-hidden="true" focusable="false"><use href="#flag-fur"/></svg> Furlan</button>
+  <button data-lang="en"><svg class="flag" aria-hidden="true" focusable="false"><use href="#flag-en"/></svg> English</button>
+  <button data-lang="de"><svg class="flag" aria-hidden="true" focusable="false"><use href="#flag-de"/></svg> Deutsch</button>
 </nav>
 
 <div class="layout">
@@ -750,6 +801,7 @@ ZTT, Trst 1987</p>
 <p>Terpin, Marjan: <em>Števerjan</em>. Gorica 1984</p>
 <p>Vrišer, Igor: <em>Goriška brda</em>, v Geografski zbornik, letn. 2, str.
 51-113, ZRC SAZU, 1954</p>
+<p>www.botanični-vrt.si, Rastline po rodovih</p>
     </div></div>
   </section>
 
@@ -760,25 +812,25 @@ ZTT, Trst 1987</p>
       <button data-page="full">Testo integrale</button>
     </div>
     <div class="page-block active" data-page="summary">
-      <p>Il Sentiero per la Sopravvivenza collega Valerišče, Mocver e Kovačevo fino a Grojna e conserva la memoria della vita tutt'altro che invidiabile delle donne del Collio che, con pesanti gerle di ciliegie sulla testa, percorrevano gli stretti sentieri fino al mercato di Gorizia per guadagnare un po' di denaro necessario al sostentamento di famiglie numerose. Il sentiero, documentato già nel 1811 e ripristinato nel 2025 è dedicato alla loro memoria, come pure dal 2010 la scultura dell’artista Angelo Simonetti.</p>
+      <p>Il Sentiero della Sopravvivenza collega Valerišče, Mocver e Kovačevo fino a Grojna e conserva la memoria della vita tutt'altro che invidiabile delle donne del Collio che, con pesanti gerle di ciliegie sulla testa, percorrevano gli stretti sentieri fino al mercato di Gorizia per guadagnare un po' di denaro necessario al sostentamento di famiglie numerose. Il sentiero, documentato già nel 1811 e ripristinato nel 2025 è dedicato alla loro memoria, come pure dal 2010 la scultura dell’artista Angelo Simonetti.</p>
       <p>Il Collio è caratterizzato dalla ricchezza storica, dal colonato, dalle peculiarità paesaggistiche, dalla ricchezza fauno-floristica, dalla tradizione della viticoltura e della frutticoltura e dalla produzione della frutta essiccata, che hanno segnato l'economia e la cultura di queste terre.</p>
       <button class="jump-btn" data-goto="full">Leggi il testo completo →</button>
     </div>
     <div class="page-block" data-page="full">
       <button class="back-btn" data-goto="summary">← Torna al riassunto</button>
-      <h2>SENTIERO PER LA SOPRAVVIVENZA</h2>
-<p>Il sentiero che attraversa l'ambiente naturale da Valerišče a Mocver e, lungo l'attuale Kovačevo, fino a Grojna, custodisce la memoria della vita passata, tutt'altro che invidiabile, degli abitanti di questi luoghi, in particolare delle donne: provenienti dai villaggi vicini (oggi in Slovenia), con pesanti gerle di ciliegie sulla testa, percorrevano, in ogni condizione atmosferica, questo sentiero fino al mercato di Gorizia, per guadagnare, in un'epoca di generale povertà, almeno un po' di denaro necessario al sostentamento di famiglie allora numerose. Da qui il nome Sentiero per la Sopravvivenza.</p>
+      <h2>IL COLLIO SI PRESENTA</h2>
+<p>Il sentiero che attraversa l'ambiente naturale da Valerišče a Mocver e, lungo l'attuale Kovačevo, fino a Grojna, custodisce la memoria della vita passata, tutt'altro che invidiabile, degli abitanti di questi luoghi, in particolare delle donne: provenienti dai villaggi vicini (oggi in Slovenia), con pesanti gerle di ciliegie sulla testa, percorrevano, in ogni condizione atmosferica, questo sentiero fino al mercato di Gorizia, per guadagnare, in un'epoca di generale povertà, almeno un po' di denaro necessario al sostentamento di famiglie allora numerose. Da qui il nome Sentiero della Sopravvivenza.</p>
 <p>Per riprendersi un po' dalla fatica del cammino, le donne si fermavano per breve tempo a Mocver, davanti alla casa della famiglia Komjanc, dove la giovane Marija, oggi scomparsa, osservava il loro quotidiano sacrificio che si radicò profondamente nella sua anima. Per mantenere vivo il ricordo di questa "gente semplice", su suo desiderio e iniziativa fu collocata a Mocver nel 2010 una scultura, opera dell’artista goriziano Angelo Simonetti, e nel 2025 è stato ripristinato anche il sentiero.</p>
 <p>Secondo quanto accertato fino ad oggi, questo sentiero ha una lunga storia. L'Archivio di Stato di Gorizia conserva una mappa in cui, secondo l'annotazione di chi non conosceva il dialetto sloveno, il percorso è indicato come SKAPUT, in sloveno OZKA POT, che in italiano significa sentiero stretto. Fu misurato e cartografato, con l'aiuto degli abitanti del luogo, dall'ingegnere Vincenzo Rasnesi tra il 6 maggio e il 19 settembre 1811.</p>
 <p>Nel tratto superiore il sentiero è più dolce — reso percorribile negli anni Ottanta del secolo scorso dall'allora Comunità Montana del Collio — mentre nel tratto inferiore la forza del torrente, che scende verso la pianura, ha trasformato il paesaggio boschivo in una pittoresca e scoscesa gola, lunga circa 400 metri, che giunge fino al corso d’acqua della Grojnica.</p>
 <p>Gli ultimi interventi ne consentono nuovamente l'utilizzo. Per la comunità locale ha un valore rievocativo, mentre ai visitatori del Collio e agli escursionisti offre un'ulteriore occasione di immergersi nella natura.</p>
-<p>Il Sentiero per la Sopravvivenza è un sentiero comunale.</p>
+<p>Il Sentiero della Sopravvivenza è un sentiero comunale.</p>
 <h2>LE CILIEGIE E LE DONNE DEL COLLIO</h2>
 <p>Il primo frutto a maturare nel Collio erano le ciliegie, regine della frutticoltura locale. Le diverse quote altimetriche di questa zona collinare garantivano una produzione che andava dalle varietà più precoci a quelle più tardive. Erano diffuse le <em>prvačence</em>, le prime a maturare, le <em>drugobernke,</em> <em>divjake</em>, <em>cepike</em>, <em>čufarce</em>, <em>mišuvce</em>, <em>kozanke</em>, <em>vipavke</em>, <em>karnjevke,</em> le tardive <em>trcinke, napoleonke, pontevke, dolgorepke</em> e altre ancora.</p>
 <p>La raccolta e la vendita delle ciliegie era mansione delle donne, che con la loro fatica mantenevano le famiglie, allora generalmente numerose. Le ciliegie raccolte venivano portate a vendere, dai villaggi occidentali del Collio a Cormons, da quelli orientali a Gorizia. Da Kojsko, Gornje Cerovo e dagli altri piccoli borghi orientali, le donne si riunivano al primo chiarore dell'alba e, con gerle (<em>kaštela</em>, <em>češtela</em>) sulla testa che potevano pesare fino a 45 kg, si affrettavano scalze lungo sentieri scoscesi, polverosi e, in caso di pioggia, scivolosi. Il percorso più breve passava per Podvanovo verso Kakence, oppure attraverso la Gmajna, Mavrnik e Budilnik fino a Mocver, dove si concedevano una breve pausa. Lungo il sentiero attraverso Kovačevo scendevano nella valle e poi, il più rapidamente possibile, per le strade della città, raggiungevano il mercato all'aperto di Gorizia verso le sei e mezza, quando arrivavano i grossisti ad acquistare la frutta. Le ciliegie del Collio venivano poi trasportate alla stazione ferroviaria, destinate a Klagenfurt, alla Vienna imperiale e oltre, fino in Russia.</p>
 <p>Prima dello sviluppo della rete stradale locale, questo sentiero rappresentava anche per gli abitanti di Števerjan (San Floriano del Collio), che dovevano recarsi a Gorizia al lavoro, a scuola, a sbrigare le commissioni o per motivi di svago, l'unica via di collegamento.</p>
-<p>Perché questo difficile passato non cadesse nell'oblio, il sentiero percorso dalle donne del Collio è stato ripristinato nel 2025 e intitolato <em>Sentiero per la Sopravvivenza</em>.</p>
-<h2>IL COLLIO ATTRAVERSO IL TEMPO</h2>
+<p>Perché questo difficile passato non cadesse nell'oblio, il sentiero percorso dalle donne del Collio è stato ripristinato nel 2025 e intitolato <em>Sentiero della Sopravvivenza</em>.</p>
+<h2>IL COLLIO NEL TEMPO</h2>
 <p>La storia del Collio è sempre stata plasmata da avvenimenti di portata più ampia. La zona era abitata già in epoca preistorica, come testimoniano i ritrovamenti archeologici neolitici, tra cui i reperti in legno della palude del Preval — presunti resti di un insediamento palafitticolo — così come reperti dell'età del bronzo (tombe ad incinerazione ai piedi del Calvario) e dell'età del ferro. Fino alla fondazione di Aquileia nel 181 a.C., che divenne un solido avamposto militare e punto di partenza per la diffusione della civiltà romana, si susseguirono incursioni di vari popoli (Illiri, Veneti, Celti, Carni) che segnarono anche la vita degli abitanti del Collio. Il periodo preistorico si concluse con la progressiva romanizzazione, le conquiste militari e l'inclusione di questo territorio nell'Impero Romano.</p>
 <p>Dopo la caduta di Aquileia e il declino dell'Impero Romano, dal V secolo in poi si succederono in questo territorio invasioni degli Eruli, Goti, Longobardi, Franchi, Avari e Slavi. I Longobardi presero possesso delle fortificazioni di confine bizantine sul margine orientale della pianura friulana, e lungo questa linea di difesa, nel VII secolo, si arrestò la compatta colonizzazione slava. Nell'VIII secolo gli Slavi iniziarono a spingersi verso ovest dove si scontrarono con i Longobardi e, intorno al 703, su un’altura del Collio, il nome non è riportato nelle fonti, subirono una pesante sconfitta. Nella battaglia sarebbe caduta l'intera nobiltà friulana insieme al duca Ferdulfo. Nel decennio successivo gli Slavi colonizzarono tutto il territorio tra l'Isonzo e la pianura friulana, e intorno al 720 si spinsero oltre il limes longobardo.</p>
 <p>Nel 774 i Franchi annessero il regno longobardo in Italia e Carlo Magno introdusse l'ordinamento feudale, con feudatari nominati dal sovrano franco. Durante il IX secolo gli Ungari iniziarono a spingersi verso ovest, e appena l'anno 955 pose fine alle loro incursioni, che lasciavano dietro di sé solo devastazione, soprattutto nel Friuli. Il nascente impero germanico medievale portò nuovi sviluppi. Si formarono nuovi poteri, con duchi, margravi o conti nominati dal sovrano. Al patriarca di Aquileia venne così concessa dall'imperatore germanico Ottone III la parte orientale del Goriziano, e al conte friulano Werihen la parte occidentale, che comprendeva anche il Collio. Nel 1090 la contea di Gorizia passò in possesso della famiglia nobile dei Lurn, proveniente dalla Val Pusteria; ai sovrani di questa famiglia spettò ufficialmente il titolo di conti di Gorizia. La loro influenza si consolidò negli anni e di conseguenza generò controversie con i patriarchi vicini, condizionando soprattutto la realtà del Collio.</p>
@@ -849,7 +901,7 @@ plebejus" tabindex="0" role="button">Barbus plebejus</span></em>), il cobite com
 <p>I vigneti rinnovati dopo la Prima Guerra Mondiale erano più compatti, inoltre furono abbandonati gli appezzamenti di terreno meno fertili. Si iniziò allora a coltivare maggiori quantità della pregiata ribolla che caratterizzava la produzione vinicola del Collio, insieme al tocai, alla malvasia, al moscato, al riesling e, in misura minore, varietà a uva nera.</p>
 <p>Dopo il secondo conflitto mondiale la rapida crescita economica nell'area italiana del Collio ha reso possibile uno straordinario sviluppo della viticoltura e l'attuale riconoscimento mondiale di questa zona vinicola per i suoi vini di qualità.</p>
 <p>Tra i vini bianchi sono diffusi la <em>ribolla</em>, il <em>tocai</em>, la <em>malvasia</em>, il <em>pinot grigio</em>, il <em>pinot bianco</em>, il <em>riesling</em>, il <em>sauvignon</em>, lo <em>chardonnay</em>, il <em>Müller-Thurgau</em>, il <em>traminer</em> e il <em>picolit</em>. Tra i vini rossi il <em>merlot</em>, il <em>cabernet</em>, il <em>cabernet sauvignon</em>, il <em>cabernet franc</em> e il <em>pinot nero</em>.</p>
-<h2>LA SECCATURA DELLA FRUTTA</h2>
+<h2>ESSICAZIONE DELLA FRUTTA</h2>
 <p>Per il contadino del Collio rappresentava una fonte di guadagno anche la vendita di frutta essiccata, soprattutto di susine, chiamata dalla gente locale <em>penčane</em> <em>češplje</em>. Prima dell’essiccatura era necessario sbucciare il frutto. Il procedimento richiedeva molto tempo ed era affidato alle donne, non solo del luogo. Essendo necessaria manodopera aggiuntiva, venivano nel Collio anche donne dalla Slavia friulana (Benečija). Le donne si disponevano attorno al cumulo di susine appena raccolte e, con un coltellino, sbucciavano o raschiavano ogni singolo frutto, operazione che richiedeva una certa abilità, poiché sulla susina non doveva rimanere nemmeno il più piccolo pezzetto di buccia. Le susine sbucciate venivano poi disposte dalle "sbucciatrici" su graticci sostenuti da telai, per essere seccate al sole. Leggermente disidratate venivano poi poste, per due ore, sotto una grande tinozza, dove su una paletta ardeva lo zolfo. Seguiva una nuova esposizione al sole. La solfatura andava ripetuta tre o quattro volte, per evitare la marcitura. Ai frutti essiccati veniva poi tolto il nocciolo, dopodiché le donne li appiattivano a coppie. Le susine venivano poi riposte in piccole casse o botticelle a chiusura ermetica, dove, verso Natale, venivano completamente ricoperte da una candida patina di zucchero. Allora giungeva il momento della vendita. Le dolci prugne venivano acquistate dai commercianti di Gorizia o di Cormons e spedite a Vienna, a Praga e nelle maggiori città tedesche, fino all'importante mercato di Amburgo. A causa delle fluttuazioni dei prezzi e soprattutto della politica doganale del governo italiano, questa tipica preparazione delle susine fu progressivamente abbandonata.</p>
 <p>Similmente si seccavano i fichi <em>madone</em>, le pesche <em>kadone</em>, le pere <em>štrnivke</em> e anche le ciliegie <em>karnjevke</em>.</p>
 <div class="sources"><h2>Fonti</h2>
@@ -862,7 +914,8 @@ plebejus" tabindex="0" role="button">Barbus plebejus</span></em>), il cobite com
 <p>Simčič, Zvonimir: <em>Vino med ljudsko modrostjo in sodobno znanostjo</em>. ZTT, Trieste 1987</p>
 <p>Singer, Detlef: <em>Kateri ptič je to? Ptiči Evrope</em>. Kranj 2004</p>
 <p>Terpin, Marjan: <em>Števerjan</em>. Gorizia 1984</p>
-<p>Vrišer, Igor: <em>Goriška brda</em>, in Geografski zbornik, vol. 2, pp. 51-113, ZRC SAZU, 1954</p></div>
+<p>Vrišer, Igor: <em>Goriška brda</em>, in Geografski zbornik, vol. 2, pp. 51-113, ZRC SAZU, 1954</p>
+<p>www.botanični-vrt.si, Rastline po rodovih</p></div>
     </div>
   </section>
 
@@ -879,7 +932,7 @@ plebejus" tabindex="0" role="button">Barbus plebejus</span></em>), il cobite com
     </div>
     <div class="page-block" data-page="full">
       <button class="back-btn" data-goto="summary">← Torne al riassunt</button>
-      <h2>IL TROI PAR SOREVIVI</h2>
+      <h2>IL CUEI SI PRESENTA</h2>
 <p>Il troi che al passe fûr pal ambient naturâl di Valeriscje a Mocver e, fûr pal atuâl Kovačevo, fin a Groine, al custodìs la memorie de vite dure di une volte dai abitants di chescj puescj, massime des feminis dal Cuei: rivant des vilis dongje (vuê in Slovenie), cun zeis pesants plens di cjariesis sul cjâf, a fasevin cheste trate cun ogni cundizion di timp, fin sul marcjât di Gurize, par vuadagnâ - intune epoche li che la puaretât e jere gjenerâl - almancul un pôcs di bêçs che a podessin judâ a sostentâ lis fameis che a jerin dispès numerosis. Al ven di chi il non di “Troi par Sorevivi”.</p>
 <p>Par ricreâsi un pôc de fature di cjaminâ, lis feminis si fermavin un moment a Mocver, devant de cjase de famee Komjanc, là che la zovine Marija, che vuê no je plui, e viodeve il lôr sacrifici cuotidian. Il sacrifici di chestis feminis si inlidrisà tal fonts de sô anime e, par che la storie di cheste int semplice no fos dismenteade, su sô domande e iniziative al è stât fat sù a Mocver, tal 2010, un monument che ur è stât dedicât, opare dal scultôr gurizan Angelo Simonetti; tal 2025 il troi al è ancje stât comedât.</p>
 <p>Daûr di ce che al è stât verificât fin vuê, chest troi al à une storie lungje. L'Archivi di Stât di Gurize al conserve une mape li che - su la fonde di une note di cualchidun che nol cognosseve il dialet sloven - il percors al è stât segnât par talian tant che “Stretto sentiero” o “Skaput” (di “<em>Ozka pot”</em> che al vûl dî “troi stret”). Al fo misurât e cartografât, cul jutori dai abitants dal puest, dal inzegnîr Vincenzo Rasnesi tra i 6 di Mai e i 19 di Setembar dal 1811.</p>
@@ -961,7 +1014,8 @@ plebejus" tabindex="0" role="button">Barbus plebejus</span></em>), il cobite com
 <p>Simčič, Zvonimir: <em>Vino med ljudsko modrostjo in sodobno znanostjo</em>. ZTT, Triest 1987</p>
 <p>Singer, Detlef: <em>Kateri ptič je to? Ptiči Evrope</em>. Cravuàr 2004</p>
 <p>Terpin, Marjan: <em>Števerjan</em>. Gurize 1984</p>
-<p>Vrišer, Igor: <em>Goriška brda</em>, in Geografski zbornik, vol. 2, p. 51-113, ZRC SAZU, 1954</p></div>
+<p>Vrišer, Igor: <em>Goriška brda</em>, in Geografski zbornik, vol. 2, p. 51-113, ZRC SAZU, 1954</p>
+<p>www.botanični-vrt.si, Rastline po rodovih</p></div>
     </div>
   </section>
 
@@ -978,7 +1032,7 @@ plebejus" tabindex="0" role="button">Barbus plebejus</span></em>), il cobite com
     </div>
     <div class="page-block" data-page="full">
       <button class="back-btn" data-goto="summary">← Back to summary</button>
-      <h2>THE PATH OF SURVIVAL</h2>
+      <h2>THE COLLIO/BRDA PRESENTS ITSELF</h2>
 <p>The path that crosses the natural landscape from Valerišče to Mocver and, along what is now Kovačevo, on to Grojna, keeps alive the memory of the unenviable life once led by the people of this area, above all the women of the Collio/Brda hills. Coming from nearby villages (today in Slovenia), carrying heavy baskets of cherries on their heads, they walked this path in all weather to the market in Gorizia, to earn, in a time of general hardship, at least a little money to support their often-large families. Hence the name Path of Survival.</p>
 <p>To recover a little from the exertion of the walk, the women would stop briefly at Mocver, in front of the Komjanc family farmhouse, where their daily toil was watched by the young Marija, now deceased. The sacrifice of these women left a deep mark on her, and so that the history of these "humble" people would not be forgotten, at her request and on her initiative a memorial dedicated to them was erected at Mocver in 2010, the work of the sculptor from Gorizia Angelo Simonetti; in 2025 the path itself was also restored.</p>
 <p>According to what has been established so far, this path has a long history. The State Archive in Gorizia holds a map on which, in the words of someone unfamiliar with the Slovenian dialect, the route is marked as SKAPUT or NARROW PATH (OZKA POT). It was surveyed and mapped, with the help of residents, by the engineer Vincenzo Rasnesi between 6 May and 19 September 1811.</p>
@@ -1052,7 +1106,7 @@ plebejus" tabindex="0" role="button">Barbus plebejus</span></em>), the spined lo
 <p>The severe winter of 1928 destroyed the last almond trees and, with frost, struck the olive tree, which had been planted here since the second half of the 18th century — on the initiative of the Gorizia Agricultural Society — to the point that it disappeared entirely in the 20th century; in recent decades, however, olive groves have been spreading rapidly on cultivated land. Of the Mediterranean vegetation, the cypress has survived in the more sheltered areas.</p>
 <p>World events have always shaped the life of the people of the Collio/Brda hills. In 1915 war brought the golden age of Collio/Brda fruit growing to an end. With the post-war annexation of the Collio/Brda hills to Italy, demand for the area's fruit fell, but one benefit was the post-war improvement of the roads, which the enterprising local people made use of to carry fruit for sale by cart, and later by bicycle. Fruit growing experienced a fresh boost after the Second World War, during the period of Allied administration. The inter-regional market had not yet reopened, so demand for local produce was high. Wholesale buyers came to the Collio/Brda hills with trucks to buy fruit.</p>
 <p>With the mechanisation of agriculture, picking cherries and other fruit became uneconomical because of the high cost of labour. Orchards were replaced by vineyards.</p>
-<h2>WINEGROWING</h2>
+<h2>WINE GROWING</h2>
 <p>The earliest sources on the Collio/Brda hills already report winegrowing in pre-Roman times; the Romans contributed to its development with new forms of cultivation. In Roman times the wine known as "<em>vinum pucinum</em>", produced from the glera grape variety, was famous. According to the data known so far, ribolla was first mentioned in the 13th century and, in the Middle Ages, was on the tables of the Counts of Gorizia and the Patriarchs of Aquileia, and later of the Venetian and Austrian administrators. In the Middle Ages various prohibitions held back wine exports; in the 16th century, and especially after 1676, when the restriction on trading in wine was lifted, winegrowing experienced more marked development. In the 18th century the authorities tried to prevent the planting of new vineyards, but the French occupation of these lands changed that situation.</p>
 <p>The Collio/Brda hills enjoyed the highest reputation among the wine-growing areas of the empire. White grape varieties have always predominated. The best, and most prized, on the marl soil were <em>ribolla (garganega)</em> and <em>picolit</em>, while <em>glera</em>, <em>zelenka</em>, <em>pika</em>, <em>pogrozdnca</em>, <em>isabella</em>, <em>cividin</em>, <em>tržarka</em>, <em>pinella</em>, <em>dremih</em>, <em>pergola</em>, <em>malvasia</em>, <em>clinton</em>, <em>ovčji rep</em>, <em>brtlinar</em>, <em>kurbinc</em>, <em>samorodnica</em>, <em>black americana</em> and <em>white americana</em>, among others, were also widespread.</p>
 <p>Table grapes of the varieties <em>kozji ses</em>, <em>cohovka</em>, <em>gutedel</em> and <em>muscat</em> were also grown.</p>
@@ -1074,7 +1128,8 @@ plebejus" tabindex="0" role="button">Barbus plebejus</span></em>), the spined lo
 <p>Simčič, Zvonimir: <em>Vino med ljudsko modrostjo in sodobno znanostjo</em>. ZTT, Trieste, 1987</p>
 <p>Singer, Detlef: <em>Kateri ptič je to? Ptiči Evrope</em>. Kranj, 2004</p>
 <p>Terpin, Marjan: <em>Števerjan</em>. Gorizia, 1984</p>
-<p>Vrišer, Igor: <em>Goriška brda</em>, in Geografski zbornik, vol. 2, pp. 51–113, ZRC SAZU, 1954</p></div>
+<p>Vrišer, Igor: <em>Goriška brda</em>, in Geografski zbornik, vol. 2, pp. 51–113, ZRC SAZU, 1954</p>
+<p>www.botanični-vrt.si, Rastline po rodovih</p></div>
     </div>
   </section>
 
@@ -1091,7 +1146,7 @@ plebejus" tabindex="0" role="button">Barbus plebejus</span></em>), the spined lo
     </div>
     <div class="page-block" data-page="full">
       <button class="back-btn" data-goto="summary">← Zurück zur Zusammenfassung</button>
-      <h2>DER PFAD DES ÜBERLEBENS</h2>
+      <h2>DIE REGION COLLIO/BRDA PRÄSENTIERT SICH</h2>
 <p>Der Pfad, der die Naturlandschaft von Valerišče über Mocver und das heutige Kovačevo bis nach Grojna durchquert, bewahrt die Erinnerung an das wenig beneidenswerte vergangene Leben der hier ansässigen Menschen, vor allem der Frauen des Collio/Brda: Sie kamen aus den umliegenden Dörfern (heute in Slowenien) und gingen mit schweren Kirschenkörben auf dem Kopf bei jedem Wetter diesen Pfad entlang bis zum Markt von Görz, um in einer Zeit allgemeiner Not wenigstens etwas Geld für den Unterhalt ihrer oft kinderreichen Familien zu verdienen. Daher der Name Pfad des Überlebens.</p>
 <p>Um sich vom anstrengenden Gang ein wenig zu erholen, machten die Frauen kurz Halt in Mocver, vor dem Hof der Familie Komjanc, wo ihre tägliche Mühe von der jungen, heute verstorbenen Marija beobachtet wurde. Das Opfer dieser Frauen prägte sich tief in ihre Seele ein, und damit die Geschichte dieser „einfachen" Menschen nicht in Vergessenheit gerät, wurde auf ihren Wunsch und ihre Initiative im Jahr 2010 in Mocver ein ihnen gewidmetes Denkmal errichtet, ein Werk des Görzer Bildhauers Angelo Simonetti; 2025 wurde zudem der Pfad selbst restauriert.</p>
 <p>Nach den bisherigen Erkenntnissen hat dieser Pfad eine lange Geschichte. Das Staatsarchiv von Görz verwahrt eine Karte, auf der die Strecke, nach der Aufzeichnung jemandes, der den slowenischen Dialekt nicht kannte, als SKAPUT oder SCHMALER PFAD (OZKA POT) verzeichnet ist. Sie wurde mit Hilfe der Ortsansässigen vom Ingenieur Vincenzo Rasnesi zwischen dem 6. Mai und dem 19. September 1811 vermessen und kartiert.</p>
@@ -1187,7 +1242,8 @@ plebejus" tabindex="0" role="button">Barbus plebejus</span></em>), der Steinbei�
 <p>Simčič, Zvonimir: <em>Vino med ljudsko modrostjo in sodobno znanostjo</em>. ZTT, Triest, 1987</p>
 <p>Singer, Detlef: <em>Kateri ptič je to? Ptiči Evrope</em>. Kranj, 2004</p>
 <p>Terpin, Marjan: <em>Števerjan</em>. Görz, 1984</p>
-<p>Vrišer, Igor: <em>Goriška brda</em>, in Geografski zbornik, Bd. 2, S. 51–113, ZRC SAZU, 1954</p></div>
+<p>Vrišer, Igor: <em>Goriška brda</em>, in Geografski zbornik, Bd. 2, S. 51–113, ZRC SAZU, 1954</p>
+<p>www.botanični-vrt.si, Rastline po rodovih</p></div>
     </div>
   </section>
 
